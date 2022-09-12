@@ -3,15 +3,28 @@
 
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 int main(int argc, char* argv[]) {
+    std::cout << "Welcome to Token Reader by Maxwell Trotter!\n";
 
     if (argc != 2) {  // If there is no input file, kill the program
         std::cout << "Run this program with an input file, e.g. '$ ./token_reader.o sample.txt'\n";
+        std::cout << "Quitting.\n";
         return 0;
     }
-    std::ofstream infile;
-    // DEBUG: std::cout << argv[0] << argv[1];
+    std::ifstream infile;
     infile.open(argv[1]);
     std::cout << "Reading from " << argv[1] << ":\n";
+
+    // store every line as a string and put it in a vector
+    std::vector<std::string> input_v;
+    std::string temp;
+    while (!infile.eof()) {
+        infile >> temp;
+        std::cout << temp << "\n";
+        input_v.push_back(temp);
+    }
+
+    // DEBUG: for (auto element : input_v) { std::cout << element << " | "; } 
 }
