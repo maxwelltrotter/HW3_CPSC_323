@@ -12,7 +12,7 @@ void parser(std::vector<std::string> v){
         isnumber = true;
         isidentifier = true;
         isreservedword = true;
-        if (!isdigit(e[0])) {  // for strings beginning with a number
+        if (isdigit(e[0])) {  // for strings beginning with a number
             isidentifier = false;
             isreservedword = false;
             for (int i = 1; i < e.size(); i++) {  // check every character until nondigit or end
@@ -23,6 +23,7 @@ void parser(std::vector<std::string> v){
                 // isnumber will never have been set to false)
             }
         } else {
+            isnumber = false;
             if (e == "while"   ||
                 e == "for"     ||
                 e == "switch"  ||
@@ -31,6 +32,13 @@ void parser(std::vector<std::string> v){
                                   // isidentifier to false befre the end of
                                   // the primary loop
                     isidentifier = false;
+                } else {
+                    for (int i = 1; i < e.size(); i++) {  // check every character until digit or end
+                        if (isdigit(e[i])) {
+                            isidentifier = false;
+                            break;
+                        }
+                    }
                 }
         }
     // At this point, every possible type of word in C++ has been tested for
