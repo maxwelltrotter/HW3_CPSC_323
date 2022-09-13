@@ -33,6 +33,7 @@ void parser(std::vector<std::string> v){
                                   // the primary loop
                     isidentifier = false;
                 } else {
+                    isreservedword = false;
                     for (int i = 1; i < e.size(); i++) {  // check every character until digit or end
                         if (isdigit(e[i])) {
                             isidentifier = false;
