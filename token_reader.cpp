@@ -1,9 +1,10 @@
-// Compile: clang++ token_reader.cpp -o tokenreader.o -std=c++20
-// Execute: ./token_reader.o
+// Compile/Link: clang++ token_reader.cpp -o tokenreader.o -std=c++20
+// Execute: ./token_reader.o sample.txt
 
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include "parser.cpp"
 
 int main(int argc, char* argv[]) {
     std::cout << "Welcome to Token Reader by Maxwell Trotter!\n";
@@ -25,6 +26,9 @@ int main(int argc, char* argv[]) {
         std::cout << temp << "\n";
         input_v.push_back(temp);
     }
+    std::cout << "\n";  // Visual design appeal
 
-    // DEBUG: for (auto element : input_v) { std::cout << element << " | "; } 
+    // DEBUG: for (auto element : input_v) { std::cout << element << " | "; }
+    parser(input_v);
+    return 0;
 }
