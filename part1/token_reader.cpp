@@ -1,3 +1,6 @@
+// Maxwell Trotter, Joseph Eggers
+// @maxwelltrotter @crimsongnome
+// CPSC 323
 // Compile/Link: clang++ token_reader.cpp -o tokenreader.o -std=c++20
 // Execute: ./token_reader.o sample.txt
 
